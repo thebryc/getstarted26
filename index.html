@@ -81,6 +81,7 @@
   /* lookup */
   .lookup{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:22px}
   label.lab{display:block;font-weight:700;font-size:14px;margin:0 0 6px;color:#33383d}
+  .hint{display:block;font-weight:400;font-size:12.5px;color:#8a9096;margin:-1px 0 7px;line-height:1.35}
   input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{width:100%;padding:12px 14px;border:1.5px solid #cfd3d8;border-radius:10px;font:inherit;font-size:16px;background:#fff;color:var(--ink)}
   input:focus,select:focus,textarea:focus{outline:3px solid rgba(9,77,158,.22);border-color:var(--blue)}
   .grade-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
@@ -363,7 +364,7 @@
           <div><label class="lab">Fellow's grade <span class="req">*</span></label><select name="fellow_grade" required><option value="">Select grade</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></div>
           <div class="ffull"><label class="lab">Fellow's school <span class="req">*</span></label><select name="fellow_school" required><option value="">Select your school</option><option>Baker High School</option><option>Baton Rouge Magnet HS</option><option>Belaire Magnet HS</option><option>Broadmoor Senior HS</option><option>Brusly High School</option><option>Catholic High School</option><option>Collegiate Baton Rouge</option><option>Denham Springs HS</option><option>Dutchtown High School</option><option>GEO Next Gen HS</option><option>GEO Prep Mid-City</option><option>Liberty Magnet HS</option><option>Madison Prep Academy</option><option>McKinley Middle Magnet</option><option>McKinley Senior HS</option><option>Northeast HS</option><option>Port Allen High School</option><option>Prairieville HS</option><option>Scotlandville Magnet HS</option><option>Sherwood Middle School</option><option>Southern University Lab</option><option>St. Amant High School</option><option>Tara High School</option><option>Woodlawn High School</option><option>Woodlawn Middle School</option><option>Zachary High School</option></select><p style="margin:7px 0 0;font-size:13.5px;color:#6a7076">Only schools with transportation this year are listed. If yours isn't here, transportation isn't offered from your school.</p></div>
           <div><label class="lab">Guardian name <span class="req">*</span></label><input type="text" name="guardian_name" required></div>
-          <div><label class="lab">Guardian phone <span class="req">*</span></label><input type="tel" name="guardian_phone" required></div>
+          <div><label class="lab">Guardian phone <span class="req">*</span></label><span class="hint">Format: XXX-XXX-XXXX</span><input type="tel" name="guardian_phone" required placeholder="XXX-XXX-XXXX"></div>
           <div class="ffull"><label class="lab">Guardian email <span class="req">*</span></label><input type="email" name="guardian_email" required></div>
         </div>
         <label class="lab" style="margin-top:18px">Authorization to Transport Fellow <span class="req">*</span></label>
@@ -462,13 +463,13 @@
         <input type="hidden" name="form_type" value="Schedule Change Request">
         <div class="fgrid">
           <div><label class="lab">Fellow's first and last name <span class="req">*</span></label><input type="text" name="fellow_name" required></div>
-          <div><label class="lab">Fellow's school <span class="req">*</span></label><input type="text" name="fellow_school" required></div>
+          <div><label class="lab">Fellow's school <span class="req">*</span></label><span class="hint">Name of school and type (e.g. Madison Magnet High School, Monroe Middle School)</span><input type="text" name="fellow_school" required placeholder="e.g. Madison Magnet High School"></div>
           <div><label class="lab">Grade <span class="req">*</span></label><select name="fellow_grade" required><option value="">Select grade</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></div>
           <div><label class="lab">Currently assigned day</label><select name="current_day"><option value="">Select day</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Not sure</option></select></div>
           <div><label class="lab">Requested day <span class="req">*</span></label><select name="requested_day" required><option value="">Select day</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option></select></div>
           <div class="ffull"><label class="lab">Why? <span class="req">*</span></label><textarea name="reason" rows="3" required placeholder="Briefly tell us what's driving the request"></textarea></div>
           <div><label class="lab">Guardian name <span class="req">*</span></label><input type="text" name="guardian_name" required></div>
-          <div><label class="lab">Guardian phone <span class="req">*</span></label><input type="tel" name="guardian_phone" required></div>
+          <div><label class="lab">Guardian phone <span class="req">*</span></label><span class="hint">Format: XXX-XXX-XXXX</span><input type="tel" name="guardian_phone" required placeholder="XXX-XXX-XXXX"></div>
           <div class="ffull"><label class="lab">Guardian email <span class="req">*</span></label><input type="email" name="guardian_email" required></div>
         </div>
         <button type="submit" class="btn" style="margin-top:18px">Submit request</button>
