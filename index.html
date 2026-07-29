@@ -262,8 +262,8 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:28px">
-      <a class="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZJx39-OlgDIa48vd7AXaeB0R-gULY4OHyh4dWqtxK2IWzw/viewform" target="_blank" rel="noopener">RSVP for Orientation</a>
-      <p class="hint" style="text-align:center;margin-top:10px">One RSVP covers Orientation and Community Day.</p>
+      <a class="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZJx39-OlgDIa48vd7AXaeB0R-gULY4OHyh4dWqtxK2IWzw/viewform" target="_blank" rel="noopener">RSVP for Orientation and Community Day</a>
+      <p class="hint" style="text-align:center;margin-top:10px">One submission covers both events.</p>
     </div>
   </div>
 </section>
@@ -438,7 +438,7 @@
       </div>
     </div>
     <div style="text-align:center;margin-top:22px">
-      <a class="btn-rsvp" style="background:var(--pink-d)" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZJx39-OlgDIa48vd7AXaeB0R-gULY4OHyh4dWqtxK2IWzw/viewform" target="_blank" rel="noopener">RSVP for Community Day</a>
+      <a class="btn-rsvp" style="background:var(--pink-d)" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZJx39-OlgDIa48vd7AXaeB0R-gULY4OHyh4dWqtxK2IWzw/viewform" target="_blank" rel="noopener">RSVP for Orientation and Community Day</a>
       <p class="hint" style="text-align:center;margin-top:10px">Same RSVP as Orientation. One submission covers both.</p>
     </div>
   </div>
@@ -498,9 +498,9 @@
         <div class="fgrid">
           <div><label class="lab">Fellow's first and last name <span class="req">*</span></label><input type="text" name="fellow_name" required></div>
           <div><label class="lab">Fellow's school <span class="req">*</span></label><span class="hint">Name of school and type (e.g. Madison Magnet High School, Monroe Middle School)</span><input type="text" name="fellow_school" required placeholder="e.g. Madison Magnet High School"></div>
-          <div><label class="lab">Grade <span class="req">*</span></label><select name="fellow_grade" required><option value="">Select grade</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></div>
-          <div><label class="lab">Currently assigned day</label><select name="current_day"><option value="">Select day</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Not sure</option></select></div>
-          <div><label class="lab">Requested day <span class="req">*</span></label><select name="requested_day" required><option value="">Select day</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option></select></div>
+          <div><label class="lab">Grade <span class="req">*</span></label><select id="chgGrade" name="fellow_grade" required><option value="">Select grade</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></div>
+          <div><label class="lab">Currently assigned day</label><select id="chgCurrent" name="current_day" disabled><option value="">Select grade first</option></select></div>
+          <div><label class="lab">Requested day <span class="req">*</span></label><select id="chgRequested" name="requested_day" required disabled><option value="">Select grade first</option></select><span class="hint">Only the days offered for this grade are shown.</span></div>
           <div class="ffull"><label class="lab">Why? <span class="req">*</span></label><textarea name="reason" rows="3" required placeholder="Briefly tell us what's driving the request"></textarea></div>
           <div><label class="lab">Guardian name <span class="req">*</span></label><input type="text" name="guardian_name" required></div>
           <div><label class="lab">Guardian phone <span class="req">*</span></label><span class="hint">Format: XXX-XXX-XXXX</span><input type="tel" name="guardian_phone" required placeholder="XXX-XXX-XXXX"></div>
@@ -539,6 +539,7 @@ function campusLine(c){
   return 'Downtown or Airline &middot; confirm with BRYC';
 }
 function transport(row){
+  if(row.g.indexOf('Writing')>-1) return {cls:'no', txt:'Writing Fellows do not receive BRYC transportation'};
   const keys=Object.keys(TRANSPORT);
   if(keys.length===0) return {cls:'chk', txt:'Check availability - opt in to transportation below'};
   const maybe=TRANSPORT_MAYBE[row.s];
@@ -588,6 +589,34 @@ document.getElementById('openChange').addEventListener('click',openM);
 document.getElementById('closeChange').addEventListener('click',closeM);
 modal.addEventListener('click',e=>{if(e.target===modal)closeM();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeM();});
+
+/* schedule-change: day options depend on grade (day + campus a Fellow can start from / move to) */
+const GRADE_DAYS = {
+  '8th':  [['Tuesday','Airline'],['Wednesday','Downtown']],
+  '9th':  [['Monday','Downtown'],['Tuesday','Airline']],
+  '10th': [['Tuesday','Airline'],['Thursday','Downtown']],
+  '11th': [['Tuesday','Airline'],['Wednesday','Downtown'],['Thursday','Downtown']],
+  '12th': [['Monday','Downtown'],['Tuesday','Downtown'],['Wednesday','Airline']],
+};
+const chgGrade=document.getElementById('chgGrade');
+const chgCurrent=document.getElementById('chgCurrent');
+const chgRequested=document.getElementById('chgRequested');
+function fillDays(sel, grade, placeholder){
+  sel.innerHTML='<option value="">'+placeholder+'</option>';
+  (GRADE_DAYS[grade]||[]).forEach(([d,c])=>{
+    const o=document.createElement('option');
+    o.value=d+' ('+c+')'; o.textContent=d+' ('+c+')';
+    sel.appendChild(o);
+  });
+  sel.disabled=!grade;
+}
+function onChgGrade(){
+  const g=chgGrade.value;
+  fillDays(chgCurrent, g, g?'Select current day':'Select grade first');
+  fillDays(chgRequested, g, g?'Select requested day':'Select grade first');
+}
+chgGrade.addEventListener('change', onChgGrade);
+onChgGrade();
 
 /* reveal */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
