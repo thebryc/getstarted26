@@ -155,14 +155,6 @@
 
   .btn-rsvp{display:inline-block;background:var(--teal-d);color:#fff;text-decoration:none;border-radius:12px;padding:15px 36px;font-family:var(--disp);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:23px;box-shadow:var(--shadow)}
   .btn-rsvp:hover{filter:brightness(.92)}
-  .videos{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-  .vcard{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
-  .vframe{position:relative;aspect-ratio:16/9;background:#0c0d1a}
-  .vframe iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-  .vplace{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#cfd0e8;background:linear-gradient(135deg,var(--indigo),var(--indigo-3))}
-  .vplace .ptri{width:0;height:0;border-left:26px solid rgba(255,255,255,.92);border-top:16px solid transparent;border-bottom:16px solid transparent;margin-left:6px}
-  .vplace span{font-size:13px;letter-spacing:.04em;text-transform:uppercase;font-weight:600}
-  .vlabel{padding:13px 16px;font-family:var(--disp);font-weight:700;text-transform:uppercase;font-size:20px}
 
   /* expectations */
   .vals{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 0}
@@ -204,7 +196,6 @@
       <a href="#orientation">Orientation</a>
       <a href="#schedule">Find your schedule</a>
       <a href="#transportation">Transportation</a>
-      <a href="#team">Meet the team</a>
       <a href="#community">Community Day</a>
       <a href="#expectations">Expectations</a>
     </nav>
@@ -379,7 +370,7 @@
         <div class="fgrid">
           <div><label class="lab">Fellow's first and last name <span class="req">*</span></label><input type="text" name="fellow_name" required></div>
           <div><label class="lab">Fellow's grade <span class="req">*</span></label><select name="fellow_grade" required><option value="">Select grade</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></div>
-          <div class="ffull"><label class="lab">Fellow's school <span class="req">*</span></label><select name="fellow_school" required><option value="">Select your school</option><option>Baker High School</option><option>Baton Rouge Magnet HS</option><option>Belaire Magnet HS</option><option>Broadmoor Senior HS</option><option>Brusly High School</option><option>Catholic High School</option><option>Collegiate Baton Rouge</option><option>Denham Springs HS</option><option>Dutchtown High School</option><option>GEO Next Gen HS</option><option>GEO Prep Mid-City</option><option>Liberty Magnet HS</option><option>Madison Prep Academy</option><option>McKinley Middle Magnet</option><option>McKinley Senior HS</option><option>Northeast HS</option><option>Port Allen High School</option><option>Prairieville HS</option><option>Scotlandville Magnet HS</option><option>Sherwood Middle School</option><option>Southern University Lab</option><option>St. Amant High School</option><option>Tara High School</option><option>Woodlawn High School</option><option>Woodlawn Middle School</option><option>Zachary High School</option></select><p style="margin:7px 0 0;font-size:13.5px;color:#6a7076">Only schools with transportation this year are listed. If yours isn't here, transportation isn't offered from your school.</p></div>
+          <div class="ffull"><label class="lab">Fellow's school <span class="req">*</span></label><select id="optSchool" name="fellow_school" required><option value="">Select your school</option><option>Baker High School</option><option>Baton Rouge Magnet HS</option><option>Belaire Magnet HS</option><option>Broadmoor Senior HS</option><option>Brusly High School</option><option>Catholic High School</option><option>Collegiate Baton Rouge</option><option>Denham Springs HS</option><option>Dutchtown High School</option><option>GEO Next Gen HS</option><option>GEO Prep Mid-City</option><option>Liberty Magnet HS</option><option>Madison Prep Academy</option><option>McKinley Middle Magnet</option><option>McKinley Senior HS</option><option>Northeast HS</option><option>Port Allen High School</option><option>Prairieville HS</option><option>Scotlandville Magnet HS</option><option>Sherwood Middle School</option><option>Southern University Lab</option><option>St. Amant High School</option><option>Tara High School</option><option>Woodlawn High School</option><option>Woodlawn Middle School</option><option>Zachary High School</option><option value="__other__">My school isn't listed</option></select><p style="margin:7px 0 0;font-size:13.5px;color:#6a7076">Schools with transportation this year are listed. If yours isn't here, choose "My school isn't listed" to request it. We can't promise a route, but we review every request.</p><div id="otherWrap" style="display:none;margin-top:12px"><label class="lab">Type your school (name and type) <span class="req">*</span></label><input type="text" id="optSchoolOther" placeholder="e.g. Central Middle School"></div></div>
           <div><label class="lab">Guardian name <span class="req">*</span></label><input type="text" name="guardian_name" required></div>
           <div><label class="lab">Guardian phone <span class="req">*</span></label><span class="hint">Format: XXX-XXX-XXXX</span><input type="tel" name="guardian_phone" required placeholder="XXX-XXX-XXXX"></div>
           <div class="ffull"><label class="lab">Guardian email <span class="req">*</span></label><input type="email" name="guardian_email" required></div>
@@ -408,20 +399,8 @@
   </div>
 </section>
 
-<!-- MEET THE TEAM -->
-<section id="team" class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" style="color:var(--indigo-3)">Get to know us</div>
-      <h2>Meet your team</h2>
-      <p>Short intros from the BRYC staff who'll be working with your Fellow this year. More coming soon.</p>
-    </div>
-    <div class="videos" id="videos"></div>
-  </div>
-</section>
-
 <!-- COMMUNITY DAY -->
-<section id="community">
+<section id="community" class="alt">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow" style="color:var(--pink)">Bring the family</div>
@@ -445,7 +424,7 @@
 </section>
 
 <!-- EXPECTATIONS -->
-<section id="expectations" class="alt">
+<section id="expectations">
   <div class="wrap">
     <div class="sec-head"><div class="eyebrow">The BRYC way</div><h2>Fellow expectations</h2></div>
     <div class="grid2">
@@ -523,6 +502,7 @@ const SCHEDULE = [{"s":"Ascension Christian HS","c":"Airline","g":"9th","d":"Tue
    While EMPTY, every school shows a neutral "check availability / opt in" note. */
 const TRANSPORT = {"Baker High School":["Thursday"],"Baton Rouge Magnet HS":["Monday","Wednesday","Thursday"],"Brusly High School":["Tuesday"],"Catholic High School":["Monday","Thursday"],"Collegiate Baton Rouge":["Monday","Tuesday","Wednesday","Thursday"],"GEO Next Gen HS":["Wednesday"],"GEO Prep Mid-City":["Wednesday"],"Liberty Magnet HS":["Monday","Wednesday","Thursday"],"Madison Prep Academy":["Monday","Tuesday","Wednesday","Thursday"],"McKinley Middle Magnet":["Wednesday"],"McKinley Senior HS":["Tuesday","Wednesday","Thursday"],"Northeast HS":["Monday"],"Port Allen High School":["Tuesday"],"Scotlandville Magnet HS":["Monday","Thursday"],"Southern University Lab":["Monday","Tuesday","Thursday"],"Zachary High School":["Monday","Thursday"],"Belaire Magnet HS":["Wednesday"],"Broadmoor Senior HS":["Tuesday"],"Denham Springs HS":["Tuesday"],"Dutchtown High School":["Tuesday","Wednesday"],"Prairieville HS":["Tuesday","Wednesday"],"Sherwood Middle School":["Tuesday"],"St. Amant High School":["Tuesday"],"Tara High School":["Tuesday","Wednesday"],"Woodlawn High School":["Tuesday","Wednesday"],"Woodlawn Middle School":["Tuesday"]};
 const TRANSPORT_MAYBE = {"Baker High School":["Tuesday"],"Zachary High School":["Tuesday"]};
+const WRITING_TRANSPORT_OK = ['Liberty Magnet HS','Baton Rouge Magnet HS'];
 
 function band(grade){
   const g=grade.toLowerCase();
@@ -539,7 +519,7 @@ function campusLine(c){
   return 'Downtown or Airline &middot; confirm with BRYC';
 }
 function transport(row){
-  if(row.g.indexOf('Writing')>-1) return {cls:'no', txt:'Writing Fellows do not receive BRYC transportation'};
+  if(row.g.indexOf('Writing')>-1 && WRITING_TRANSPORT_OK.indexOf(row.s)===-1) return {cls:'no', txt:'Writing Fellows do not receive BRYC transportation'};
   const keys=Object.keys(TRANSPORT);
   if(keys.length===0) return {cls:'chk', txt:'Check availability - opt in to transportation below'};
   const maybe=TRANSPORT_MAYBE[row.s];
@@ -622,40 +602,47 @@ onChgGrade();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ---- meet the team videos ----
-   Add an embed URL (YouTube/Vimeo "embed" link) to show a video; leave null for a "coming soon" placeholder. */
-const TEAM_VIDEOS = [
-  {team:'8th Grade Team', color:'#eb2627', url:null},
-  {team:'9th & 10th Grade Team', color:'#f0c917', url:null},
-  {team:'11th Grade / ACT Team', color:'#e06326', url:null},
-  {team:'12th Grade / Senior & Advising', color:'#00adad', url:null},
-];
-document.getElementById('videos').innerHTML = TEAM_VIDEOS.map(v=>{
-  const media = v.url
-    ? `<div class="vframe"><iframe src="${v.url}" title="${v.team}" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`
-    : `<div class="vframe vplace"><div class="ptri"></div><span>Video coming soon</span></div>`;
-  return `<div class="vcard" style="border-top:5px solid ${v.color}">${media}<div class="vlabel">${v.team}</div></div>`;
-}).join('');
-
 /* forms (Formspree) */
 const TRANSPORT_ENDPOINT='https://formspree.io/f/xrenrbea';
 const CHANGE_ENDPOINT='https://formspree.io/f/xnjelnjo';
-function wire(formId, endpoint, msgId, okText, btnText){
+function wire(formId, endpoint, msgId, okText, btnText, prep){
   const form=document.getElementById(formId), msg=document.getElementById(msgId);
   form.addEventListener('submit', async e=>{
     e.preventDefault();
     const btn=form.querySelector('button[type=submit]');
     if(endpoint.includes('YOUR_')){msg.className='formmsg err';msg.textContent='Form not connected yet: add your Formspree endpoint before publishing.';return;}
+    const fd=new FormData(form);
+    if(prep) prep(fd, form);
     btn.disabled=true; btn.textContent='Submitting...';
     try{
-      const res=await fetch(endpoint,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
-      if(res.ok){form.reset();msg.className='formmsg ok';msg.textContent=okText;}
+      const res=await fetch(endpoint,{method:'POST',body:fd,headers:{'Accept':'application/json'}});
+      if(res.ok){form.reset();if(form.querySelector('#otherWrap'))form.querySelector('#otherWrap').style.display='none';msg.className='formmsg ok';msg.textContent=okText;}
       else{msg.className='formmsg err';msg.textContent='Something went wrong. Please try again or email community@thebryc.org.';}
     }catch(err){msg.className='formmsg err';msg.textContent='Network error. Please try again or email community@thebryc.org.';}
     btn.disabled=false; btn.textContent=btnText;
   });
 }
-wire('transportForm', TRANSPORT_ENDPOINT, 'transportMsg', "You're opted in. We'll confirm pickup details before the first day and add you to our texting line.", 'Submit opt-in');
+
+/* opt-in: "My school isn't listed" reveals a free-text request field */
+const optSchool=document.getElementById('optSchool');
+const otherWrap=document.getElementById('otherWrap');
+const optSchoolOther=document.getElementById('optSchoolOther');
+if(optSchool){
+  optSchool.addEventListener('change',()=>{
+    const other=optSchool.value==='__other__';
+    otherWrap.style.display=other?'block':'none';
+    optSchoolOther.required=other;
+    if(!other) optSchoolOther.value='';
+  });
+}
+
+wire('transportForm', TRANSPORT_ENDPOINT, 'transportMsg', "You're opted in. We'll confirm pickup details before the first day and add you to our texting line.", 'Submit opt-in', (fd, form)=>{
+  const sel=form.querySelector('[name=fellow_school]');
+  if(sel && sel.value==='__other__'){
+    fd.set('fellow_school', optSchoolOther ? optSchoolOther.value : '');
+    fd.set('school_not_listed', 'Yes');
+  }
+});
 wire('changeForm', CHANGE_ENDPOINT, 'changeMsg', "Request received. We'll review and follow up. Thanks for letting us know.", 'Submit request');
 </script>
 </body>
