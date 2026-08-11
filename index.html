@@ -49,7 +49,7 @@
   .hero h1{font-size:clamp(48px,9vw,92px);text-transform:uppercase;margin:8px 0 14px}
   .hero h1 .t{color:var(--teal)}
   .hero p{max-width:560px;color:#e6e4f2;font-size:19px;margin:0 0 30px}
-  .dates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;max-width:820px}
+  .dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:560px}
   .dc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:15px 17px;text-decoration:none;color:inherit;display:block;backdrop-filter:blur(2px)}
   .dc:hover{background:rgba(255,255,255,.12)}
   .dc .k{font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:#bcb8dd;font-weight:600}
@@ -193,11 +193,8 @@
     <span class="name">Start of BRYC</span>
     <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
     <nav id="nav">
-      <a href="#orientation">Orientation</a>
       <a href="#schedule">Find your schedule</a>
       <a href="#transportation">Transportation</a>
-      <a href="#community">Community Day</a>
-      <a href="#expectations">Expectations</a>
     </nav>
   </div>
 </header>
@@ -207,57 +204,13 @@
   <div class="wrap">
     <div class="eyebrow" style="color:#7fe3e3">Welcome to the 2026-27 year</div>
     <h1>The Start<br>of <span class="t">BRYC</span></h1>
-    <p>Everything Fellows and Guardians need as the year begins: orientation, your program schedule, and transportation. Bookmark this page.</p>
+    <p>Everything Fellows and Guardians need to get started: look up your program schedule and sign up for transportation. Bookmark this page.</p>
     <div class="dates">
-      <a class="dc a" href="#orientation"><div class="k">Orientation</div><div class="v">Aug 3-5</div><div class="s">By grade &middot; 5:30-7:30 PM</div></a>
+      <a class="dc a" href="#schedule"><div class="k">Your schedule</div><div class="v">Look it up</div><div class="s">By school &amp; grade</div></a>
       <a class="dc b" href="#transportation"><div class="k">Transportation opt-in</div><div class="v">By Aug 12</div><div class="s">Sign up before this date</div></a>
-      <a class="dc c" href="#community"><div class="k">Community Day</div><div class="v">Aug 8</div><div class="s">All Fellows &amp; families</div></a>
     </div>
   </div>
 </div>
-
-<!-- ORIENTATION -->
-<section id="orientation">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">First step</div>
-      <h2>Orientation</h2>
-      <p>Every family kicks off the year at orientation. Find your Fellow's grade below for the evening and location, then RSVP. All sessions run <strong>5:30-7:30 PM</strong>, with light refreshments provided.</p>
-    </div>
-    <div class="callout" style="margin-bottom:22px"><strong>Who needs to attend:</strong> For 8th-11th grade, orientation is required for new Fellows and Guardians and optional for returning Fellows. If you have a 12th grade Fellow, RSVP for senior orientation only. You only need to RSVP for one evening. If you have two Fellows in different grades, RSVP for the oldest Fellow's orientation only.</div>
-    <div class="oriwrap">
-      <div class="loc reveal">
-        <div class="lh" style="background:var(--indigo)">
-          <div class="nm">BRYC Downtown</div>
-          <div class="ad"><a href="http://thebryc.org/park" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">460 North 11th Street</a>, Baton Rouge, LA 70802</div>
-          <span class="tm">5:30-7:30 PM</span>
-        </div>
-        <div class="lb">
-          <div class="orow"><div class="d">8th &amp; 9th<small>Monday, August 3</small></div><div class="g">Downtown</div></div>
-          <div class="orow"><div class="d">9th-11th<small>Tuesday, August 4</small></div><div class="g">Downtown</div></div>
-          <div class="orow"><div class="d">10th &amp; 11th<small>Wednesday, August 5</small></div><div class="g">Downtown</div></div>
-        </div>
-      </div>
-      <div class="loc reveal">
-        <div class="lh" style="background:var(--teal-d)">
-          <div class="nm">First United Methodist Church</div>
-          <div class="ad">930 North Blvd, Baton Rouge, LA 70802</div>
-          <span class="tm">5:30-7:30 PM</span>
-        </div>
-        <div class="lb">
-          <div class="orow"><div class="d">All 12th Grade<small>Tuesday, August 4</small></div><div class="g">Seniors</div></div>
-        </div>
-        <div class="lb" style="padding-top:0">
-          <div class="callout">Seniors attend at First United Methodist Church, not the Downtown campus.</div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:28px">
-      <a class="btn-rsvp" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZJx39-OlgDIa48vd7AXaeB0R-gULY4OHyh4dWqtxK2IWzw/viewform" target="_blank" rel="noopener">RSVP for Orientation and Community Day</a>
-      <p class="hint" style="text-align:center;margin-top:10px">One submission covers both events.</p>
-    </div>
-  </div>
-</section>
 
 <!-- SCHEDULE LOOKUP -->
 <section id="schedule" class="alt">
@@ -395,58 +348,6 @@
         <button type="submit" class="btn" style="margin-top:20px">Submit opt-in</button>
         <div class="formmsg" id="transportMsg"></div>
       </form>
-    </div>
-  </div>
-</section>
-
-<!-- COMMUNITY DAY -->
-<section id="community" class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" style="color:var(--pink)">Bring the family</div>
-      <h2>Community Day</h2>
-      <p>A day to bring Fellows, families, and staff together before programming ramps up.</p>
-    </div>
-    <div class="cday">
-      <div class="big">Saturday<br>August 8<small>11:00 AM - 1:00 PM</small></div>
-      <div style="flex:1;min-width:240px">
-        <p style="margin:0 0 4px;font-weight:700;font-size:19px">All Star Lanes</p>
-        <p style="margin:0 0 12px;color:#565c62"><a href="https://www.google.com/maps/place/All+Star+Lanes/@30.4298319,-91.0802949,956m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8626a4a026be667d:0xf57a375208e7343a!8m2!3d30.4298273!4d-91.07772!16s%2Fg%2F1vfzfjqt" target="_blank" rel="noopener">9829 Airline Hwy, Baton Rouge, LA 70816</a></p>
-        <p style="margin:0 0 6px">We'd love for all Fellows to join us. Community Day is optional.</p>
-        <p style="margin:0;font-weight:700">Fellows must be dropped off and picked up from the event.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:22px">
-      <a class="btn-rsvp" style="background:var(--pink-d)" href="https://docs.google.com/forms/d/e/1FAIpQLSfCZJx39-OlgDIa48vd7AXaeB0R-gULY4OHyh4dWqtxK2IWzw/viewform" target="_blank" rel="noopener">RSVP for Orientation and Community Day</a>
-      <p class="hint" style="text-align:center;margin-top:10px">Same RSVP as Orientation. One submission covers both.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EXPECTATIONS -->
-<section id="expectations">
-  <div class="wrap">
-    <div class="sec-head"><div class="eyebrow">The BRYC way</div><h2>Fellow expectations</h2></div>
-    <div class="grid2">
-      <div class="info">
-        <h3>What we ask of Fellows</h3>
-        <ul><li>Uphold BRYC's core values while engaging with BRYC:</li></ul>
-        <div class="vals"><span class="val">Hustle</span><span class="val">Integrity</span><span class="val">Community</span></div>
-        <ul style="margin-top:12px">
-          <li>Attend at least <strong>80%</strong> of weekly programs to remain in good standing.</li>
-          <li>Fellows and Guardians recognize that violating BRYC's core values may result in immediate dismissal. These include, but are not limited to, illicit substance use, fighting, sexual conduct, vandalism, and grievous disrespect of team members, volunteers, partners, or other Fellows.</li>
-        </ul>
-      </div>
-      <div class="info">
-        <h3>Behavior support</h3>
-        <p>Building strong relationships with Fellows involves moments of challenge and growth, and we journey alongside them through it. Our team approaches every interaction with fairness, consistency, and proactive support, addressing concerns promptly and celebrating success because we believe deeply in our Fellows' potential.</p>
-        <p style="margin:0 0 4px;font-weight:700">We define acceptable behavior by three principles:</p>
-        <div class="three">
-          <div class="r"><div class="n">Respect</div><div class="t">Yourself</div></div>
-          <div class="r"><div class="n">Respect</div><div class="t">Others</div></div>
-          <div class="r"><div class="n">Respect</div><div class="t">Our buildings</div></div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
