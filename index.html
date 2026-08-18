@@ -49,7 +49,7 @@
   .hero h1{font-size:clamp(48px,9vw,92px);text-transform:uppercase;margin:8px 0 14px}
   .hero h1 .t{color:var(--teal)}
   .hero p{max-width:560px;color:#e6e4f2;font-size:19px;margin:0 0 30px}
-  .dates{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:560px}
+  .dates{display:grid;grid-template-columns:1fr;gap:14px;max-width:300px}
   .dc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:15px 17px;text-decoration:none;color:inherit;display:block;backdrop-filter:blur(2px)}
   .dc:hover{background:rgba(255,255,255,.12)}
   .dc .k{font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:13px;color:#bcb8dd;font-weight:600}
@@ -207,7 +207,6 @@
     <p>Everything Fellows and Guardians need to get started: look up your program schedule and sign up for transportation. Bookmark this page.</p>
     <div class="dates">
       <a class="dc a" href="#schedule"><div class="k">Your schedule</div><div class="v">Look it up</div><div class="s">By school &amp; grade</div></a>
-      <a class="dc b" href="#transportation"><div class="k">Transportation opt-in</div><div class="v">By Aug 12</div><div class="s">Sign up before this date</div></a>
     </div>
   </div>
 </div>
@@ -247,7 +246,7 @@
     <div class="sec-head">
       <div class="eyebrow" style="color:var(--blue)">Getting to BRYC</div>
       <h2>Transportation</h2>
-      <p>BRYC provides transportation from most schools to our campuses. Review how it works and the rules, then opt in below. <strong>Opt-in closes August 12.</strong></p>
+      <p>BRYC provides transportation from most schools to our campuses. Review how it works and the rules below.</p>
     </div>
 
     <div class="grid2" style="margin-bottom:22px">
@@ -263,7 +262,7 @@
       <div class="info">
         <h3>Is it offered at my school?</h3>
         <p style="margin:0 0 10px">Search your school in the schedule tool above to check availability. Availability is set by school and can change based on routes.</p>
-        <div class="callout">Not sure yet? Opt in below anyway. We'll confirm your pickup before the first day, and there's no penalty if a route isn't available.</div>
+        <div class="callout">Opting in has ended. To request transportation now, email <a href="mailto:community@thebryc.org" style="color:inherit;font-weight:700;text-decoration:underline">community@thebryc.org</a>.</div>
       </div>
     </div>
 
@@ -314,41 +313,8 @@
       </ul>
     </div></details>
 
-    <h3 class="disp" style="font-size:27px;text-transform:uppercase;margin:30px 0 12px" id="optin">Opt in to transportation</h3>
-    <div class="formwrap">
-      <div class="callout warn" style="margin-bottom:18px">Opting in requires a Guardian to read and agree to the Authorization to Transport below. Opt-in closes <strong>August 12</strong>.</div>
-      <form id="transportForm">
-        <input type="hidden" name="_subject" value="New Transportation Opt-In (Start of BRYC)">
-        <input type="hidden" name="form_type" value="Transportation Opt-In">
-        <div class="fgrid">
-          <div><label class="lab">Fellow's first and last name <span class="req">*</span></label><input type="text" name="fellow_name" required></div>
-          <div><label class="lab">Fellow's grade <span class="req">*</span></label><select name="fellow_grade" required><option value="">Select grade</option><option>8th</option><option>9th</option><option>10th</option><option>11th</option><option>12th</option></select></div>
-          <div class="ffull"><label class="lab">Fellow's school <span class="req">*</span></label><select id="optSchool" name="fellow_school" required><option value="">Select your school</option><option>Baker High School</option><option>Baton Rouge Magnet HS</option><option>Belaire Magnet HS</option><option>Broadmoor Senior HS</option><option>Brusly High School</option><option>Catholic High School</option><option>Collegiate Baton Rouge</option><option>Denham Springs HS</option><option>Dutchtown High School</option><option>GEO Next Gen HS</option><option>GEO Prep Mid-City</option><option>Liberty Magnet HS</option><option>Madison Prep Academy</option><option>McKinley Middle Magnet</option><option>McKinley Senior HS</option><option>Northeast HS</option><option>Port Allen High School</option><option>Prairieville HS</option><option>Scotlandville Magnet HS</option><option>Sherwood Middle School</option><option>Southern University Lab</option><option>St. Amant High School</option><option>Tara High School</option><option>Woodlawn High School</option><option>Woodlawn Middle School</option><option>Zachary High School</option><option value="__other__">My school isn't listed</option></select><p style="margin:7px 0 0;font-size:13.5px;color:#6a7076">Schools with transportation this year are listed. If yours isn't here, choose "My school isn't listed" to request it. We can't promise a route, but we review every request.</p><div id="otherWrap" style="display:none;margin-top:12px"><label class="lab">Type your school (name and type) <span class="req">*</span></label><input type="text" id="optSchoolOther" placeholder="e.g. Central Middle School"></div></div>
-          <div><label class="lab">Guardian name <span class="req">*</span></label><input type="text" name="guardian_name" required></div>
-          <div><label class="lab">Guardian phone <span class="req">*</span></label><span class="hint">Format: XXX-XXX-XXXX</span><input type="tel" name="guardian_phone" required placeholder="XXX-XXX-XXXX"></div>
-          <div class="ffull"><label class="lab">Guardian email <span class="req">*</span></label><input type="email" name="guardian_email" required></div>
-        </div>
-        <label class="lab" style="margin-top:18px">Authorization to Transport Fellow <span class="req">*</span></label>
-        <div class="waiver" tabindex="0" aria-label="Authorization to Transport Fellow">
-          <p>To ensure BRYC is meeting safety guidelines and transparency with schools, Guardians must consent to allow BRYC to provide transportation to their Fellow. This document uses <strong>Student</strong> and <strong>Fellow</strong> interchangeably. This authorization is valid <strong>August 1, 2026 - July 31, 2027</strong>.</p>
-          <p><strong>Consent to transport.</strong> I authorize the Baton Rouge Youth Coalition, Inc. to transport my Fellow in a company bus or van, driven by an individual or organization authorized by the Baton Rouge Youth Coalition, Inc. I understand my Fellow is expected to follow all policies and procedures regarding the organization's code of conduct and riding in a motor vehicle, and to follow the directions of the licensed driver, staff, and/or volunteer aboard the vehicle, who has passed a state background check.</p>
-          <p><strong>Policies discussed with my Fellow.</strong> I have read, understand, and discussed with my Fellow: (1) my Fellow will travel in a motor vehicle driven by an adult and will remain seated during travel; (2) my Fellow is expected to listen to supervising staff/driver and respect staff, other Fellows, the vehicles, and the people they travel with; (3) riding in a motor vehicle may result in personal injury or death from wrecks, collisions, or acts by riders, other drivers, or objects; and (4) my Fellow will not be disruptive to the driver.</p>
-          <p>I recognize that participation in this activity, as with any activity involving motor vehicle transportation, may risk personal injury or permanent loss to my Fellow. I attest and verify that I have been advised of the potential risks, that I have full knowledge of those risks, and that I assume any expenses incurred in the event of an accident, illness, or other incapacity, regardless of whether I have authorized such expenses.</p>
-          <p>As a condition for the transportation received, I, for myself, my Fellow, my executors, and assigns, further agree to release and forever discharge the Baton Rouge Youth Coalition, Inc. and its agents, officers, employees, and volunteers from any claim that I might have myself or bring on my Fellow's behalf regarding any damages, demands, or actions whatsoever, including those based on negligence, in any manner arising out of this transportation.</p>
-          <p>I have read this entire waiver and authorization form, I fully understand its terms and conditions, and I agree to be legally bound by its terms.</p>
-        </div>
-        <div class="attest">
-          <input type="checkbox" id="agree" name="authorization_agreed" value="Yes - agreed to be legally bound" required>
-          <label for="agree">I have read the Authorization to Transport in full and, as the Fellow's Guardian, I agree to be legally bound by its terms. <span class="req">*</span></label>
-        </div>
-        <div class="fgrid" style="margin-top:14px">
-          <div><label class="lab">Type your full name as signature <span class="req">*</span></label><input type="text" name="guardian_signature" required placeholder="Guardian full name"></div>
-          <div><label class="lab">Date <span class="req">*</span></label><input type="date" name="signature_date" required></div>
-        </div>
-        <button type="submit" class="btn" style="margin-top:20px">Submit opt-in</button>
-        <div class="formmsg" id="transportMsg"></div>
-      </form>
-    </div>
+    <h3 class="disp" style="font-size:27px;text-transform:uppercase;margin:30px 0 12px" id="optin">Transportation opt-in</h3>
+    <div class="callout warn" style="font-size:16px;line-height:1.55">Opting in to transportation has ended. If you would like to request transportation, please email <a href="mailto:community@thebryc.org" style="color:inherit;font-weight:700;text-decoration:underline">community@thebryc.org</a>.</div>
   </div>
 </section>
 
@@ -422,16 +388,16 @@ function campusLine(c){
 function transport(row){
   if(row.g.indexOf('Writing')>-1 && WRITING_TRANSPORT_OK.indexOf(row.s)===-1) return {cls:'no', txt:'Writing Fellows do not receive BRYC transportation'};
   const keys=Object.keys(TRANSPORT);
-  if(keys.length===0) return {cls:'chk', txt:'Check availability - opt in to transportation below'};
+  if(keys.length===0) return {cls:'chk', txt:'See the transportation section below'};
   const maybe=TRANSPORT_MAYBE[row.s];
-  if(maybe && maybe.indexOf(row.d)>-1) return {cls:'maybe', txt:"Transportation may be offered on this day - opt in and we'll confirm"};
+  if(maybe && maybe.indexOf(row.d)>-1) return {cls:'maybe', txt:"Transportation may be available at this school"};
   const v=TRANSPORT[row.s];
   if(v===undefined) return {cls:'no', txt:'Transportation not offered at this school'};
-  if(v===true) return {cls:'yes', txt:'Transportation available - opt in below'};
+  if(v===true) return {cls:'yes', txt:'Transportation available at this school'};
   if(Array.isArray(v)) return v.indexOf(row.d)>-1
-     ? {cls:'yes', txt:'Transportation available - opt in below'}
+     ? {cls:'yes', txt:'Transportation available at this school'}
      : {cls:'no', txt:'No transportation on this day'};
-  return {cls:'chk', txt:'Check availability - opt in below'};
+  return {cls:'chk', txt:'See the transportation section below'};
 }
 
 let activeGrade='all';
@@ -508,6 +474,7 @@ const TRANSPORT_ENDPOINT='https://formspree.io/f/xrenrbea';
 const CHANGE_ENDPOINT='https://formspree.io/f/xnjelnjo';
 function wire(formId, endpoint, msgId, okText, btnText, prep){
   const form=document.getElementById(formId), msg=document.getElementById(msgId);
+  if(!form) return;
   form.addEventListener('submit', async e=>{
     e.preventDefault();
     const btn=form.querySelector('button[type=submit]');
@@ -537,13 +504,6 @@ if(optSchool){
   });
 }
 
-wire('transportForm', TRANSPORT_ENDPOINT, 'transportMsg', "You're opted in. We'll confirm pickup details before the first day and add you to our texting line.", 'Submit opt-in', (fd, form)=>{
-  const sel=form.querySelector('[name=fellow_school]');
-  if(sel && sel.value==='__other__'){
-    fd.set('fellow_school', optSchoolOther ? optSchoolOther.value : '');
-    fd.set('school_not_listed', 'Yes');
-  }
-});
 wire('changeForm', CHANGE_ENDPOINT, 'changeMsg', "Request received. We'll review and follow up. Thanks for letting us know.", 'Submit request');
 </script>
 </body>
